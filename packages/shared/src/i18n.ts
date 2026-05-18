@@ -289,6 +289,73 @@ const strings = {
   },
   "web.admin.tools_version": { ru: "Версии yt-dlp / ffmpeg", en: "yt-dlp / ffmpeg" },
   "web.admin.active_streams": { ru: "Активных стримов", en: "Active streams" },
+
+  // ---------------------------------------------------------------------
+  // Friends list. The keys cover the five derived presence states and a
+  // few common verbs the bot/web friend pages share. `{service}` is the
+  // human service label resolved by `detectVideoService()`, `{title}` is
+  // the optional video title.
+  // ---------------------------------------------------------------------
+  "web.friends.title": { ru: "Друзья", en: "Friends" },
+  "web.friends.empty": {
+    ru: "Пока без друзей. Отправь приглашение из карточки пользователя.",
+    en: "No friends yet. Send an invite from another user's profile.",
+  },
+  "web.friends.tab_all": { ru: "Все", en: "All" },
+  "web.friends.tab_online": { ru: "Онлайн", en: "Online" },
+  "web.friends.tab_watching": { ru: "Смотрят сейчас", en: "Watching now" },
+  "web.friends.tab_pending": { ru: "Заявки", en: "Requests" },
+
+  "web.friends.status_online": { ru: "Онлайн", en: "Online" },
+  "web.friends.status_idle": { ru: "Неактивен", en: "Idle" },
+  "web.friends.status_sleeping": { ru: "Спит", en: "Sleeping" },
+  "web.friends.status_offline": { ru: "Не в сети", en: "Offline" },
+  "web.friends.status_watching": { ru: "Смотрит", en: "Watching" },
+
+  "web.friends.watching_on": {
+    ru: "Смотрит на {service}",
+    en: "Watching on {service}",
+  },
+  "web.friends.watching_title_on": {
+    ru: "«{title}» — {service}",
+    en: "“{title}” — {service}",
+  },
+
+  "web.friends.action_accept": { ru: "Принять", en: "Accept" },
+  "web.friends.action_decline": { ru: "Отклонить", en: "Decline" },
+  "web.friends.action_cancel": { ru: "Отменить", en: "Cancel" },
+  "web.friends.action_remove": { ru: "Удалить", en: "Remove" },
+  "web.friends.action_block": { ru: "Заблокировать", en: "Block" },
+  "web.friends.action_unblock": { ru: "Разблокировать", en: "Unblock" },
+  "web.friends.action_request_sent": { ru: "Заявка отправлена", en: "Request sent" },
+  "web.friends.action_invite": { ru: "Пригласить в друзья", en: "Add friend" },
+  "web.friends.action_join_room": { ru: "Присоединиться", en: "Join room" },
+
+  "web.friends.last_seen_just_now": { ru: "только что", en: "just now" },
+  "web.friends.last_seen_minutes": {
+    ru: "{minutes} мин назад",
+    en: "{minutes} min ago",
+  },
+  "web.friends.last_seen_hours": {
+    ru: "{hours} ч назад",
+    en: "{hours}h ago",
+  },
+  "web.friends.last_seen_days": {
+    ru: "{days} дн назад",
+    en: "{days}d ago",
+  },
+  "web.friends.last_seen_long_ago": {
+    ru: "давно не был в сети",
+    en: "offline for a while",
+  },
+
+  "web.friends.manual_online": { ru: "В сети", en: "Available" },
+  "web.friends.manual_sleeping": {
+    ru: "Сплю — не беспокоить",
+    en: "Sleeping — do not disturb",
+  },
+  "web.friends.manual_offline": { ru: "Невидимка", en: "Appear offline" },
+  "web.friends.manual_auto": { ru: "Автоматически", en: "Automatic" },
 } as const satisfies Record<string, { ru: string; en: string }>;
 
 export type I18nKey = keyof typeof strings;
