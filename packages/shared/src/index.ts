@@ -11,4 +11,7 @@ export * from "./op-web";
 export * from "./cookie-pool";
 export * from "./instance-pool";
 export * from "./required-channel-pool";
+export * from "./video-service";
+export * from "./presence";
+export * from "./friends";
 export * from "./models";

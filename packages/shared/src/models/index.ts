@@ -11,3 +11,8 @@ export {
   type RequiredChannelDoc,
   type RequiredChannelModel,
 } from "./RequiredChannel";
+export {
+  Friendship,
+  type FriendshipDoc,
+  type FriendshipModel,
+} from "./Friendship";

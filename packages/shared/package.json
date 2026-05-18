@@ -13,7 +13,10 @@
     "./instance-client": "./src/instance-client.ts",
     "./instance-sync": "./src/instance-sync.ts",
     "./watch-party": "./src/watch-party.ts",
-    "./i18n": "./src/i18n.ts"
+    "./i18n": "./src/i18n.ts",
+    "./video-service": "./src/video-service.ts",
+    "./presence": "./src/presence.ts",
+    "./friends": "./src/friends.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
