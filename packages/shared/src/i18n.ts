@@ -356,6 +356,37 @@ const strings = {
   },
   "web.friends.manual_offline": { ru: "Невидимка", en: "Appear offline" },
   "web.friends.manual_auto": { ru: "Автоматически", en: "Automatic" },
+
+  // ---------------------------------------------------------------------
+  // Friends notification inbox. `{name}` is the actor's display name,
+  // `{title}` / `{service}` mirror the watching payload.
+  // ---------------------------------------------------------------------
+  "web.notifications.title": { ru: "Уведомления", en: "Notifications" },
+  "web.notifications.empty": { ru: "Здесь пусто.", en: "Nothing here yet." },
+  "web.notifications.mark_all_read": {
+    ru: "Отметить всё прочитанным",
+    en: "Mark all as read",
+  },
+  "web.notifications.friend_request": {
+    ru: "{name} прислал тебе заявку в друзья.",
+    en: "{name} sent you a friend request.",
+  },
+  "web.notifications.friend_accepted": {
+    ru: "{name} принял твою заявку в друзья.",
+    en: "{name} accepted your friend request.",
+  },
+  "web.notifications.friend_online": {
+    ru: "{name} в сети.",
+    en: "{name} is online.",
+  },
+  "web.notifications.friend_watching_with_title": {
+    ru: "{name} смотрит «{title}» на {service}.",
+    en: "{name} is watching “{title}” on {service}.",
+  },
+  "web.notifications.friend_watching": {
+    ru: "{name} смотрит на {service}.",
+    en: "{name} is watching on {service}.",
+  },
 } as const satisfies Record<string, { ru: string; en: string }>;
 
 export type I18nKey = keyof typeof strings;

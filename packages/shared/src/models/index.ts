@@ -16,3 +16,10 @@ export {
   type FriendshipDoc,
   type FriendshipModel,
 } from "./Friendship";
+export {
+  Notification,
+  NOTIFICATION_TYPES,
+  type NotificationDoc,
+  type NotificationModel,
+  type NotificationType,
+} from "./Notification";
