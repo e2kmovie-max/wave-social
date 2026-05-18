@@ -10,7 +10,7 @@
     "build": "bun build packages/social/src/index.ts --target bun --outdir dist/social",
     "lint": "bun --filter \"*\" lint",
     "typecheck": "bun --filter \"*\" typecheck",
-    "test": "bun test packages/shared/test/op.test.ts packages/shared/test/web-lang.test.ts packages/shared/test/i18n.test.ts packages/shared/test/video-service.test.ts packages/shared/test/presence.test.ts packages/shared/test/friends.test.ts"
+    "test": "bun test packages/shared/test/op.test.ts packages/shared/test/web-lang.test.ts packages/shared/test/i18n.test.ts packages/shared/test/video-service.test.ts packages/shared/test/presence.test.ts packages/shared/test/friends.test.ts packages/shared/test/format.test.ts packages/shared/test/friend-discovery.test.ts packages/shared/test/friend-rate-limit.test.ts packages/shared/test/notifications.test.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",
