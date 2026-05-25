@@ -63,9 +63,6 @@ export function formatWatching(
   return t(lang, "web.friends.watching_on", { service });
 }
 
-/** Maximum age we attempt to render in words; older just says "offline for a while". */
-const LAST_SEEN_GIVE_UP_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
-
 /**
  * Render "last seen 3 min ago" / "12h ago" / "2d ago".
  *
@@ -96,7 +93,6 @@ export function formatLastSeen(
   if (hours < 24) return t(lang, "web.friends.last_seen_hours", { hours });
   const days = Math.floor(hours / 24);
   if (days < 30) return t(lang, "web.friends.last_seen_days", { days });
-  if (diff > LAST_SEEN_GIVE_UP_MS) return t(lang, "web.friends.last_seen_long_ago");
   return t(lang, "web.friends.last_seen_long_ago");
 }
 

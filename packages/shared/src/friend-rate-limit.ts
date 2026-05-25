@@ -17,6 +17,7 @@
 
 import { Types } from "mongoose";
 import { Friendship } from "./models/Friendship";
+import { asObjectId } from "./utils";
 
 export interface FriendRateLimits {
   /** Maximum number of pending outgoing requests at any time. */
@@ -45,15 +46,6 @@ export class FriendRateLimitError extends Error {
     super(message);
     this.name = "FriendRateLimitError";
   }
-}
-
-interface UserIdLike {
-  toString(): string;
-}
-
-function asObjectId(id: string | Types.ObjectId | UserIdLike): Types.ObjectId {
-  if (id instanceof Types.ObjectId) return id;
-  return new Types.ObjectId(typeof id === "string" ? id : id.toString());
 }
 
 /**
