@@ -8,7 +8,7 @@
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "lint": "echo \"(no lint configured for social yet)\""
+    "lint": "eslint src/"
   },
   "dependencies": {
     "@wave/shared": "workspace:*"

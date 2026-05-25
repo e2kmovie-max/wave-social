@@ -14,15 +14,7 @@ import { Friendship, type FriendshipDoc } from "./models/Friendship";
 import { Room } from "./models/Room";
 import { User, type UserDoc } from "./models/User";
 import { summarizePresence, type PresenceSummary, type PresenceThresholds } from "./presence";
-
-interface UserIdLike {
-  toString(): string;
-}
-
-function asObjectId(id: string | Types.ObjectId | UserIdLike): Types.ObjectId {
-  if (id instanceof Types.ObjectId) return id;
-  return new Types.ObjectId(typeof id === "string" ? id : id.toString());
-}
+import { asObjectId, displayName, avatarUrl } from "./utils";
 
 /** Result row for any "find people" surface. */
 export interface DiscoveredUser {
@@ -70,30 +62,6 @@ const USER_PROJECTION = {
   manualStatus: 1,
   watching: 1,
 } as const;
-
-function displayName(user: {
-  googleName?: string | null;
-  googleEmail?: string | null;
-  telegramUsername?: string | null;
-  telegramFirstName?: string | null;
-  guestName?: string | null;
-}): string {
-  return (
-    user.googleName ??
-    user.telegramFirstName ??
-    user.telegramUsername ??
-    user.guestName ??
-    user.googleEmail ??
-    "Guest"
-  );
-}
-
-function avatarUrl(user: {
-  googleAvatar?: string | null;
-  telegramPhotoUrl?: string | null;
-}): string | null {
-  return user.googleAvatar ?? user.telegramPhotoUrl ?? null;
-}
 
 /**
  * Build a `friendship` summary for every `otherId` from the viewer's

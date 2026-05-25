@@ -30,15 +30,7 @@ import {
   assertCanSendFriendRequest,
   type FriendRateLimits,
 } from "./friend-rate-limit";
-
-interface UserIdLike {
-  toString(): string;
-}
-
-function asObjectId(id: string | Types.ObjectId | UserIdLike): Types.ObjectId {
-  if (id instanceof Types.ObjectId) return id;
-  return new Types.ObjectId(typeof id === "string" ? id : id.toString());
-}
+import { asObjectId } from "./utils";
 
 async function loadDisplayName(id: Types.ObjectId): Promise<string | undefined> {
   const doc = await User.findById(id)

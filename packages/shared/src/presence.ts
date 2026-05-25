@@ -23,6 +23,7 @@
 import { Types } from "mongoose";
 import { User, type UserDoc } from "./models/User";
 import { detectVideoService } from "./video-service";
+import { asObjectId } from "./utils";
 
 /** Derived friend-list status. Strings are stable for API responses. */
 export type PresenceStatus = "online" | "idle" | "sleeping" | "offline" | "watching";
@@ -210,15 +211,6 @@ function normalizeManual(value: string | null | undefined): ManualPresence {
 // Mongoose helpers. These are the bits the route handlers actually call
 // from API endpoints / WebSocket lifecycle hooks.
 // ---------------------------------------------------------------------
-
-interface UserIdLike {
-  toString(): string;
-}
-
-function asObjectId(id: string | Types.ObjectId | UserIdLike): Types.ObjectId {
-  if (id instanceof Types.ObjectId) return id;
-  return new Types.ObjectId(typeof id === "string" ? id : id.toString());
-}
 
 /**
  * Bump a user's `lastActiveAt` to now. Safe to call on every request —

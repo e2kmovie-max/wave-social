@@ -5,6 +5,7 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
+    "./utils": "./src/utils.ts",
     "./models": "./src/models/index.ts",
     "./db": "./src/db.ts",
     "./env": "./src/env.ts",
@@ -16,6 +17,12 @@
     "./instance-sync": "./src/instance-sync.ts",
     "./watch-party": "./src/watch-party.ts",
     "./i18n": "./src/i18n.ts",
+    "./op": "./src/op.ts",
+    "./op-web": "./src/op-web.ts",
+    "./cookie-pool": "./src/cookie-pool.ts",
+    "./cookie-payload": "./src/cookie-payload.ts",
+    "./instance-pool": "./src/instance-pool.ts",
+    "./required-channel-pool": "./src/required-channel-pool.ts",
     "./video-service": "./src/video-service.ts",
     "./presence": "./src/presence.ts",
     "./format": "./src/format.ts",
@@ -27,7 +34,7 @@
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "lint": "echo \"(no lint configured for shared)\""
+    "lint": "eslint src/"
   },
   "dependencies": {
     "mongoose": "^8.8.0",

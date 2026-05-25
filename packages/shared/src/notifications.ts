@@ -19,15 +19,7 @@
 import { Types } from "mongoose";
 import { Notification, type NotificationDoc, type NotificationType } from "./models/Notification";
 import type { PresenceWatching } from "./presence";
-
-interface UserIdLike {
-  toString(): string;
-}
-
-function asObjectId(id: string | Types.ObjectId | UserIdLike): Types.ObjectId {
-  if (id instanceof Types.ObjectId) return id;
-  return new Types.ObjectId(typeof id === "string" ? id : id.toString());
-}
+import { asObjectId } from "./utils";
 
 export interface NotificationView {
   id: string;

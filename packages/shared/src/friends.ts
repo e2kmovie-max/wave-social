@@ -21,6 +21,7 @@ import { Types } from "mongoose";
 import { Friendship, type FriendshipDoc } from "./models/Friendship";
 import { User, type UserDoc } from "./models/User";
 import { summarizePresence, type PresenceSummary, type PresenceThresholds } from "./presence";
+import { asObjectId, displayName, avatarUrl } from "./utils";
 
 export class FriendshipError extends Error {
   constructor(
@@ -52,15 +53,6 @@ export interface FriendView {
   direction: "incoming" | "outgoing" | "mutual";
   acceptedAt: string | null;
   createdAt: string;
-}
-
-interface UserIdLike {
-  toString(): string;
-}
-
-function asObjectId(id: string | Types.ObjectId | UserIdLike): Types.ObjectId {
-  if (id instanceof Types.ObjectId) return id;
-  return new Types.ObjectId(typeof id === "string" ? id : id.toString());
 }
 
 /**
@@ -385,30 +377,6 @@ function computeDirection(
 ): "incoming" | "outgoing" | "mutual" {
   if (row.status === "accepted") return "mutual";
   return row.requestedBy.toString() === viewer.toString() ? "outgoing" : "incoming";
-}
-
-function displayName(user: {
-  googleName?: string | null;
-  googleEmail?: string | null;
-  telegramUsername?: string | null;
-  telegramFirstName?: string | null;
-  guestName?: string | null;
-}): string {
-  return (
-    user.googleName ??
-    user.telegramFirstName ??
-    user.telegramUsername ??
-    user.guestName ??
-    user.googleEmail ??
-    "Guest"
-  );
-}
-
-function avatarUrl(user: {
-  googleAvatar?: string | null;
-  telegramPhotoUrl?: string | null;
-}): string | null {
-  return user.googleAvatar ?? user.telegramPhotoUrl ?? null;
 }
 
 /**
